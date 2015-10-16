@@ -683,10 +683,10 @@ class Bot(TelegramObject):
         result = request.post(url, data)
 
         if result:
-            self.logger.info(
+            self.logger.debug(
                 'Getting updates: %s', [u['update_id'] for u in result])
         else:
-            self.logger.info('No new updates found.')
+            self.logger.debug('No new updates found.')
 
         return [Update.de_json(x) for x in result]
 
